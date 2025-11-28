@@ -32,7 +32,7 @@ userSchema.pre('save', async function (next) {
     //    10 là số salt rounds, càng cao càng bảo mật nhưng tốn thời gian
     this.password = await bcrypt.hash(this.password, 10);
 
-    next(); // tiếp tục save document
+    // next(); // tiếp tục save document
 });
 
 // Method để so sánh password nhập vào với password đã hash
