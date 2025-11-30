@@ -1,20 +1,48 @@
-# POST http://localhost:3001/auth/register
-# Content-Type: application/json
+###
+POST http://localhost:3001/auth/register
+Content-Type: application/json
 
-# {
-#   "name": "123451236",
-#   "email": "123451231246@gmail.com",
-#   "password" : "123456"
-# }
+{
+  "name": "12312",
+  "email": "123124124@gmail.com",
+  "password" : "123456"
+}
 
-# GET http://localhost:3001/auth/me
-# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjhlZWUxNTk3NTAxZmNlNDkzMjFmMCIsImlhdCI6MTc2NDI5MDc5NCwiZXhwIjoxNzY0ODk1NTk0fQ.H2q0o8FdvmRLzuuuLh22Zrr_obf32FG6JMDHd_fM5w4
-# Content-Type: application/json
+###
+GET http://localhost:3001/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjkyNmFkYzI4YzcwNmY5M2FlMTkyZiIsImlhdCI6MTc2NDQ5MTQwOCwiZXhwIjoxNzY0NDkxNDM4fQ.RPuyrtDhCSCHcvmQx_wHp0zZ4yCiKKVkUTc0GG-HD6M
+Content-Type: application/json
 
+###
 POST http://localhost:3001/auth/login
 Content-Type: application/json
 
 {
-  "email": "123451231246@gmail.com",
+  "email": "123122413123123@gmail.com",
   "password" : "123456"
 }
+
+###
+POST http://localhost:3001/auth/refresh-token
+Content-Type: application/json
+
+###
+POST http://localhost:3001/auth/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmMwYjU3MDYyZDM4NmFjYThjZTg4MiIsImlhdCI6MTc2NDQ5NDU3MSwiZXhwIjoxNzY0NDk0NjAxfQ.8M3M2DnHh5Jq8FzQggEEmYlF5sRpr8cp8WYHsVRmhcI
+
+###
+PUT http://localhost:3001/user/692c11d6fc09000fefc3caac
+Content-Type: application/json
+
+{
+  "name": "12312",
+  "email": "123ấdawda3123@gmail.com",
+  "password" : "123456",
+  "role": "admin"
+}
+
+###
+DELETE  http://localhost:3001/user/692bff97e439a4aabc50a3a8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MmMwZTcxMWU5NTVkMGVmZDJiZDQzMCIsImlhdCI6MTc2NDQ5NzI4OCwiZXhwIjoxNzY0NDk3MzE4fQ.zX6qyy5sJ6XPcd9jx__RnqvUeyAVt5EeL1wxjnkvOug

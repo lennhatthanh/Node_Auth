@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema(
         email: {
             type: String,
             required: true,
-            unique: true
+            unique: true,
         },
         password: {
             type: String,
@@ -20,14 +20,21 @@ const userSchema = new mongoose.Schema(
             enum: ["user", "admin"],
             default: "user",
         },
+        refreshToken: {
+            type: String,
+            select: false, // Mặc định không trả về khi query
+        },
     },
     { timestamps: true }
 );
-userSchema.pre('save', async function (next) {
+userSchema.pre("save", async function (next) {
     // 1. Kiểm tra xem field 'password' có bị thay đổi không
     //    Nếu không thay đổi → không cần hash lại, gọi next()
-    if (!this.isModified('password')) return next();
-
+    console.log(3);
+    
+    if (!this.isModified("password")) return next();
+    console.log(4);
+    
     // 2. Hash password mới trước khi lưu vào database
     //    10 là số salt rounds, càng cao càng bảo mật nhưng tốn thời gian
     this.password = await bcrypt.hash(this.password, 10);
