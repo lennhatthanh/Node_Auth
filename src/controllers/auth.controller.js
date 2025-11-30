@@ -24,7 +24,7 @@ export const registerController = async (req, res) => {
 export const loginController = async (req, res) => {
     try {
         const errors = validationResult(req);
-        if (!errors.isEmpty) {
+        if (!errors.isEmpty()) {
             const formattedErrors = errors.array().map((error) => ({
                 field: error.param,
                 message: error.msg,
@@ -57,7 +57,7 @@ export const getAllUsers = async (req, res) => {
 
 export const getUser = async (req, res) => {
     try {
-        const user = await User.create(req.params.id);
+        const user = await User.find(req.params.id);
         success(res, "Create user complite", user);
     } catch (err) {
         error(res, err.message);
@@ -66,7 +66,7 @@ export const getUser = async (req, res) => {
 
 export const updateUser = async (req, res) => {
     try {
-        const user = await User.findByIdAndDelete(req.params.id);
+        const user = await User.findByIdAndUpdate(req.params.id, req.body);
         success(res, "Create user complite", user);
     } catch (err) {
         error(res, err.message);
@@ -75,7 +75,7 @@ export const updateUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
     try {
-        const user = await User.findByIdAndUpdate(req.params.id, req.body);
+        const user = await User.findByIdAndDelete(req.params.id, req.body);
         success(res, "Create user complite", user);
     } catch (err) {
         error(res, err.message);

@@ -29,7 +29,7 @@ export const register = async ({ email, name, password }) => {
                 name: user.name,
                 email: user.email,
             },
-            token,
+            accessToken: token,
         };
     } catch (error) {
         // 5. Nếu có lỗi (DB error, validation, etc) → ném ra cho caller xử lý
